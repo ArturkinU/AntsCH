@@ -1,0 +1,22 @@
+/// Relative importance of distance(default=2)
+Beta
+
+/// Global evaporation rate of pheromone(0..1, default=0.1)
+GlobalEvaporationRate
+
+/// Local evaporation rate of pheromone(0..1, default=0.01)
+LocalEvaporationRate
+
+
+/// Probability of choosing best ant path instead of random roulette
+Q0
+
+/// Initial pheromone level along each Edge
+T0
+
+/// Define how many ants will be used
+AntCount
+
+
+/// Number of iterations to perform (default=2500)
+Iterations
