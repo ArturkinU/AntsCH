@@ -6,14 +6,13 @@
         xmlns:local="clr-namespace:Ants"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <StackPanel Background="#FF989898" Height="30" VerticalAlignment="Top" Margin="0,-10,0,0">
-      
-        <StackPanel HorizontalAlignment="Right" Width="120" Orientation="Horizontal">
+    <StackPanel Background="#FF989898" Height="30" VerticalAlignment="Top">
+        <StackPanel Width="60" Orientation="Horizontal">
             <Button x:Name="minimize_btn" Content="-" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
             <Button Content="▢" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
             <Button Content="❌" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
-        </StackPanel>  
-       
-       
+        </StackPanel>
+
+
     </StackPanel>
 </Window>
