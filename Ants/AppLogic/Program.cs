@@ -7,7 +7,7 @@ namespace Ants
     {
         static void Main(string[] args)
         {
-            List<Point> points = TspFileReader.ReadTspFile(@"C:\Users\user\Downloads\Ant-Colony-System-master\TSP\kroA150.tsp");    // Parse TSPlib file and load as List<Point>
+            List<Point> points = TspFileReader.ReadTspFile(@".\TSP\kroA150.tsp");    // Parse TSPlib file and load as List<Point>
 
             Graph graph = new Graph(points, true);  // Create Graph
             GreedyAlgorithm greedyAlgorithm = new GreedyAlgorithm(graph);
