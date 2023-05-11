@@ -11,8 +11,6 @@ LocalEvaporationRate
 /// Probability of choosing best ant path instead of random roulette
 Q0
 
-/// Initial pheromone level along each Edge
-T0
 
 /// Define how many ants will be used
 AntCount
