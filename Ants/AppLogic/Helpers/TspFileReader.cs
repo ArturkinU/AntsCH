@@ -13,7 +13,7 @@ namespace Ants
 
             CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
             ci.NumberFormat.CurrencyDecimalSeparator = ".";
-            bool readData = false;3
+            bool readData = false;
             foreach (var item in file)
             {
                 if (item.Contains("NODE_COORD_SECTION"))

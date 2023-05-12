@@ -58,6 +58,7 @@ namespace Ants
             }
         }
 
+
         public void EvaporatePheromone(Edge edge, double value)
         {
             edge.Pheromone = Math.Max(MinimumPheromone, edge.Pheromone * value); // Math.Max is here to prevent Pheromon = 0
