@@ -58,6 +58,10 @@ namespace Ants
             }
         }
 
+        public double GetPheromoneEdge(int firstPointId, int secondPointId)
+        {
+            return Edges[Helper.HashFunction(firstPointId, secondPointId)].Pheromone;
+        }
 
         public void EvaporatePheromone(Edge edge, double value)
         {

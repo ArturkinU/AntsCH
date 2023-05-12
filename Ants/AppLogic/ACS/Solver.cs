@@ -41,6 +41,7 @@ namespace Ants
                     Console.WriteLine("Current Global Best: " + GlobalBestAnt.Distance + " found in " + i + " iteration");
                 }
                 Results.Add(localBestAnt.Distance);
+
             }
             Stopwatch.Stop();
             return Results;
