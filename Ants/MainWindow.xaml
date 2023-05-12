@@ -21,17 +21,18 @@
                     <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center"/>
                     <Label Content="Количество итераций"/>
                     <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center"/>
+                    <Label Content="Коэффициент испарения"/>
+                    <Slider Width="145" Maximum="0.9" Minimum="0.1" LargeChange="0.3" TickPlacement="BottomRight" TickFrequency="0.1"/>
                     <Label Content="Переменные"/>
-
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label Content="a" Width="65"/>
+                        <Label Content="a" Width="72"/>
                         
-                        <Label Content="b" Width="65"/>
+                        <Label Content="b" Width="72"/>
                         
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center" Width="65"/>
-                        <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center" Width="65"/>
+                        <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center" Width="75"/>
+                        <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center" Width="70"/>
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>
