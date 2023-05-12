@@ -24,5 +24,19 @@ namespace Ants
         {
             InitializeComponent();
         }
+
+
+
+        private void CloseBtnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void TrayBtnClick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
+
+
     }
 }
