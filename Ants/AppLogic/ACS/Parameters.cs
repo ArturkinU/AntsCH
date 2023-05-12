@@ -53,16 +53,16 @@ namespace Ants
         /// <summary>
         /// Default parameters
         /// </summary>
-        //public Parameters()
-        //{
-        //    Beta = 2;
-        //    GlobalEvaporationRate = 0.1;
-        //    LocalEvaporationRate = 0.01;
-        //    Q0 = 0.9;
-        //    AntCount = 20;
-        //    Iterations = 10000;
-        //    T0 = 0.01;
-        //}
+        public Parameters()
+        {
+            Beta = 2;
+            GlobalEvaporationRate = 0.1;
+            LocalEvaporationRate = 0.01;
+            Q0 = 0.9;
+            AntCount = 20;
+            Iterations = 10000;
+            T0 = 0.01;
+        }
 
         public void Show()
         {
