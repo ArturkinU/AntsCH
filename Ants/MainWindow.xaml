@@ -7,36 +7,54 @@
         xmlns:local="clr-namespace:Ants"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
-    <Border Background="White" CornerRadius="10" BorderBrush="Black" BorderThickness="1">
+    <Border Background="#FFFAFAFA" CornerRadius="10" BorderBrush="Black" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="17*"></RowDefinition>
+                <RowDefinition Height="207*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Ellipse x:Name="CloseWinBtn" Grid.Row="0" Height="15" Width="15" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" IsEnabled="True" Fill="Red" Stroke="Black" StrokeThickness="0.5"></Ellipse>
-            <Ellipse x:Name="MinimumWinBtn" Grid.Row="0" Height="15" Width="15" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,30,0" IsEnabled="True" Fill="Yellow" Stroke="Black" StrokeThickness="0.5"></Ellipse>
-            <ScrollViewer Grid.Row="1">
+            <Ellipse x:Name="CloseWinBtn" Height="16" Width="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="773,0,0,0" IsEnabled="True" Fill="Red" Stroke="Black" StrokeThickness="0.5"/>
+            <Ellipse x:Name="MinimumWinBtn" Height="16" Width="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="753,0,0,0" IsEnabled="True" Fill="Yellow" Stroke="Black" StrokeThickness="0.5"/>
+            <Label Content="Antalogia" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" FontFamily="Assets\Fonts\Montserrat\Montserrat-Light.ttf" FontSize="20" Height="34" Foreground="#FF161032" Background="{x:Null}"/>
+
+            <StackPanel Grid.Column="0" Grid.Row="1">
                 <StackPanel HorizontalAlignment="Left">
-                    <Label Content="Количество муравьёв"/>
-                    <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center"/>
-                    <Label Content="Количество итераций"/>
-                    <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center"/>
-                    <Label Content="Коэффициент испарения"/>
-                    <Slider Width="145" Maximum="0.9" Minimum="0.1" LargeChange="0.3" TickPlacement="BottomRight" TickFrequency="0.1"/>
-                    <Label Content="Переменные"/>
+                    <Label Content="Количество муравьёв" Foreground="#FF161032" Margin="5,0,5,0"/>
+                    <TextBox TextWrapping="Wrap" Background="#195E6973" TextAlignment="Center" Margin="5,0,5,0" BorderBrush="{x:Null}"/>
+                    <Label Content="Количество итераций" Foreground="#FF161032" Margin="5,0,5,0"/>
+                    <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center" Margin="5,0,5,0"/>
+                    <Label Content="Коэффициент испарения" Foreground="#FF161032" Margin="5,0,5,0"/>
+                    <Slider Width="145" Maximum="0.9" Minimum="0.1" LargeChange="0.3" TickPlacement="BottomRight" TickFrequency="0.1" Margin="5,0,5,0"/>
+                    <Label Content="Переменные" Foreground="#FF161032" Margin="5,0,5,0"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label Content="a" Width="72"/>
-                        
-                        <Label Content="b" Width="72"/>
-                        
+                        <Label Content="a" Width="72" Foreground="#FF161032" Margin="5,0,5,0" FontWeight="Regular"/>
+
+                        <Label Content="b" Width="72" Foreground="#FF161032" Margin="5,0,5,0"/>
+
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center" Width="75"/>
-                        <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center" Width="70"/>
+                        <TextBox TextWrapping="Wrap" Background="#5E6973" TextAlignment="Center" Width="75" Margin="5,0,5,0"/>
+                        <TextBox TextWrapping="Wrap" Background="#5E6973" TextAlignment="Center" Width="70" Margin="5,0,5,0"/>
                     </StackPanel>
                 </StackPanel>
-            </ScrollViewer>
-            
+            </StackPanel>
+            <Button Content="File" Margin="159,0,0,0" Height="16" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Content="Clear" Margin="243,0,0,0" Height="16" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
 
 
 
