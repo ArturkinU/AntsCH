@@ -64,7 +64,8 @@ namespace Ants
                 edges.Add(edge);
             }
 
-            Edge shortestEdge = edges.OrderBy(x => x.Length).FirstOrDefault(); // choosing shortest edge
+            Edge shortestEdge = edges.OrderBy(x => x.Length)
+                                     .FirstOrDefault(); // choosing shortest edge
             return shortestEdge.End;
         }
 

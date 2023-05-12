@@ -35,6 +35,8 @@ namespace Ants
         private void TrayBtnClick(object sender, RoutedEventArgs e)
         {
             this.Hide();
+
+
         }
 
 
