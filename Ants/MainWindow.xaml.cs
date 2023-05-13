@@ -23,9 +23,20 @@ namespace Ants
         public MainWindow()
         {
             InitializeComponent();
+            InitializeBtnsConnected();
         }
 
+        private void InitializeBtnsConnected()
+        {
+            CloseWinBtn.MouseDown += CloseBtnClick;
+            MinimumWinBtn.MouseDown += TrayBtnClick;
+            WinGrab.PreviewMouseLeftButtonDown += WinGrabEvent;
+        }
 
+        private void WinGrabEvent(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
 
         private void CloseBtnClick(object sender, RoutedEventArgs e)
         {
@@ -34,14 +45,9 @@ namespace Ants
 
         private void TrayBtnClick(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+            this.WindowState = WindowState.Minimized;
 
         }
+
     }
 }

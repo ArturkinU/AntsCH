@@ -11,12 +11,15 @@
     <Border Background="#FFFAFAFA" CornerRadius="10" BorderBrush="Black" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="17*"></RowDefinition>
-                <RowDefinition Height="207*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="65*"></RowDefinition>
             </Grid.RowDefinitions>
+            <Border x:Name="WinGrab" CornerRadius="10,10,0,0" Background="#FAFAFA"/>
+
+
             <Ellipse x:Name="CloseWinBtn" Height="16" Width="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="930,0,0,0" IsEnabled="True" Fill="Red" Stroke="Black" StrokeThickness="0.5"/>
             <Ellipse x:Name="MinimumWinBtn" Height="16" Width="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="910,0,0,0" IsEnabled="True" Fill="Yellow" Stroke="Black" StrokeThickness="0.5"/>
-            <Label Content="Antalogia" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" FontFamily="Assets\Fonts\Montserrat\Montserrat-Light.ttf" FontSize="20" Height="34" Foreground="#FF161032" Background="{x:Null}"/>
+            <Label Content="Antalogia" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" FontFamily="Montserrat" FontSize="20" Height="34" Foreground="#FF161032" Background="{x:Null}"/>
 
             <WrapPanel Grid.Column="0" Grid.Row="1">
                 <StackPanel HorizontalAlignment="Center" Height="628">
@@ -55,29 +58,29 @@
                             </Border>
                         </StackPanel>
                     </StackPanel>
-                                       
+
                     <!--<Border CornerRadius="5,5,0,0"  Height="21" Width="161" Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
                         <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032"/>
                     </Border>-->
                     <Button Width="160" Height="92" Background="#FFFAFAFA" BorderBrush="{x:Null}" Foreground="#FF161032" Content="Запуск" FontSize="36" FontFamily="Montserrat Black" Margin="0,300,0,0">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </Button.Resources>
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
 
-                    <Button.Effect>
-                        <DropShadowEffect BlurRadius="10" Direction="270" RenderingBias="Performance" Color="#3F000000" ShadowDepth="2"/>
-                    </Button.Effect>
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="10" Direction="270" RenderingBias="Performance" Color="#3F000000" ShadowDepth="2"/>
+                        </Button.Effect>
 
                     </Button>
 
                 </StackPanel>
-                
-                
-                <Border Background="#FF443D63" Width="778" Height="628" Grid.Column="1" Grid.Row="0" CornerRadius="0,0,10,0">
-                    <Canvas Width="778" Height="628" Background="Transparent"/>
-                    
+
+
+                <Border Background="#FF443D63" Width="778" Height="650" Grid.Column="1" Grid.Row="0" CornerRadius="0,0,10,0">
+                    <Canvas Width="778" Background="Transparent"/>
+
                 </Border>
             </WrapPanel>
             <Button Content="File" Margin="159,0,0,0" Height="16" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
