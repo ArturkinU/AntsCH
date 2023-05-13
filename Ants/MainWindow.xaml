@@ -6,38 +6,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ants"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+        Title="MainWindow" Height="682" Width="960" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+
     <Border Background="#FFFAFAFA" CornerRadius="10" BorderBrush="Black" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="17*"></RowDefinition>
                 <RowDefinition Height="207*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Ellipse x:Name="CloseWinBtn" Height="16" Width="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="773,0,0,0" IsEnabled="True" Fill="Red" Stroke="Black" StrokeThickness="0.5"/>
-            <Ellipse x:Name="MinimumWinBtn" Height="16" Width="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="753,0,0,0" IsEnabled="True" Fill="Yellow" Stroke="Black" StrokeThickness="0.5"/>
+            <Ellipse x:Name="CloseWinBtn" Height="16" Width="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="930,0,0,0" IsEnabled="True" Fill="Red" Stroke="Black" StrokeThickness="0.5"/>
+            <Ellipse x:Name="MinimumWinBtn" Height="16" Width="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="910,0,0,0" IsEnabled="True" Fill="Yellow" Stroke="Black" StrokeThickness="0.5"/>
             <Label Content="Antalogia" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" FontFamily="Assets\Fonts\Montserrat\Montserrat-Light.ttf" FontSize="20" Height="34" Foreground="#FF161032" Background="{x:Null}"/>
 
-            <StackPanel Grid.Column="0" Grid.Row="1">
-                <StackPanel HorizontalAlignment="Left">
-                    <Label Content="Количество муравьёв" Foreground="#FF161032" Margin="5,0,5,0"/>
-                    <TextBox TextWrapping="Wrap" Background="#195E6973" TextAlignment="Center" Margin="5,0,5,0" BorderBrush="{x:Null}"/>
-                    <Label Content="Количество итераций" Foreground="#FF161032" Margin="5,0,5,0"/>
-                    <TextBox TextWrapping="Wrap" Background="#7F9A9A9A" TextAlignment="Center" Margin="5,0,5,0"/>
+            <WrapPanel Grid.Column="0" Grid.Row="1">
+                <StackPanel HorizontalAlignment="Center" Height="628">
+
+                    <StackPanel Width="160">
+                        <Label Content="Количество муравьёв" Foreground="#FF161032"/>
+                        <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
+                            <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032" FontFamily="Montserrat"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Width="160">
+                        <Label Content="Количество итераций" Foreground="#FF161032"/>
+                        <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
+                            <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032" FontFamily="Montserrat"/>
+                        </Border>
+                    </StackPanel>
+
                     <Label Content="Коэффициент испарения" Foreground="#FF161032" Margin="5,0,5,0"/>
-                    <Slider Width="145" Maximum="0.9" Minimum="0.1" LargeChange="0.3" TickPlacement="BottomRight" TickFrequency="0.1" Margin="5,0,5,0"/>
+                    <Slider Width="161" Style="{StaticResource Horizontal_Slider}"/>
+
+
                     <Label Content="Переменные" Foreground="#FF161032" Margin="5,0,5,0"/>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label Content="a" Width="72" Foreground="#FF161032" Margin="5,0,5,0" FontWeight="Regular"/>
 
-                        <Label Content="b" Width="72" Foreground="#FF161032" Margin="5,0,5,0"/>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
 
+                        <StackPanel Width="80" Margin="5">
+                            <Label Content="A"/>
+                            <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
+                                <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032"/>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Width="80" Margin="5">
+                            <Label Content="B"/>
+                            <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
+                                <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032"/>
+                            </Border>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox TextWrapping="Wrap" Background="#5E6973" TextAlignment="Center" Width="75" Margin="5,0,5,0"/>
-                        <TextBox TextWrapping="Wrap" Background="#5E6973" TextAlignment="Center" Width="70" Margin="5,0,5,0"/>
-                    </StackPanel>
+                                       
+                    <!--<Border CornerRadius="5,5,0,0"  Height="21" Width="161" Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
+                        <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032"/>
+                    </Border>-->
+                    <Button Width="160" Height="92" Background="#FFFAFAFA" BorderBrush="{x:Null}" Foreground="#FF161032" Content="Запуск" FontSize="36" FontFamily="Montserrat Black" Margin="0,300,0,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" Direction="270" RenderingBias="Performance" Color="#3F000000" ShadowDepth="2"/>
+                    </Button.Effect>
+
+                    </Button>
+
                 </StackPanel>
-            </StackPanel>
+                
+                
+                <Border Background="#FF443D63" Width="778" Height="628" Grid.Column="1" Grid.Row="0" CornerRadius="0,0,10,0">
+                    <Canvas Width="778" Height="628" Background="Transparent"/>
+                    
+                </Border>
+            </WrapPanel>
             <Button Content="File" Margin="159,0,0,0" Height="16" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -61,4 +103,5 @@
 
         </Grid>
     </Border>
+
 </Window>
