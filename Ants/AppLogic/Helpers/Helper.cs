@@ -17,7 +17,7 @@ namespace Ants
             return sequence;
         }
 
-        public static Point GetRandomEdge(IEnumerable<Edge> cumSum)
+        public static AntPoint GetRandomEdge(IEnumerable<Edge> cumSum)
         {
             var random = RandomGenerator.Instance.Random.NextDouble();
             return cumSum.First(j => j.Weight >= random).End;

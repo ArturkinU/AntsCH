@@ -5,7 +5,7 @@ namespace Ants
 {
     class MainACS
     {
-        static void Start(int Beta, double GlobalEvaporationRate, double LocalEvaporationRate, double Q0, int AntCount, int Iterations, List<Point> Points)
+        static void Start(int Beta, double GlobalEvaporationRate, double LocalEvaporationRate, double Q0, int AntCount, int Iterations, List<AntPoint> Points)
         {
                // Parse TSPlib file and load as List<Point>
 

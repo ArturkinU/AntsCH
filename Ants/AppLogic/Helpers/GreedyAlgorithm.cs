@@ -12,8 +12,8 @@ namespace Ants
         #region Properties
         private Graph Graph { get; set; }
         private double TourDistance { get; set; }
-        private List<Point> VisitedNodes { get; set; }
-        private List<Point> UnvisitedNodes { get; set; }
+        private List<AntPoint> VisitedNodes { get; set; }
+        private List<AntPoint> UnvisitedNodes { get; set; }
         private List<Edge> Path { get; set; }
         #endregion
 
@@ -22,13 +22,13 @@ namespace Ants
             Graph = graph;
             TourDistance = 0;
             UnvisitedNodes = graph.Points.ToList();
-            VisitedNodes = new List<Point>();
+            VisitedNodes = new List<AntPoint>();
             Path = new List<Edge>();
         }
 
         public double Run()
         {
-            Point toPoint, fromPoint;
+            AntPoint toPoint, fromPoint;
             SetStartingPoint();
 
             for (int i = 0; i < Graph.Dimensions; i++)
@@ -54,11 +54,11 @@ namespace Ants
             return Math.Round(TourDistance);
         }
 
-        private Point ChooseNextPoint(Point startPoint)
+        private AntPoint ChooseNextPoint(AntPoint startPoint)
         {
             List<Edge> edges = new List<Edge>();
 
-            foreach (Point endPoint in UnvisitedNodes)
+            foreach (AntPoint endPoint in UnvisitedNodes)
             {
                 Edge edge = Graph.GetEdge(startPoint.Id, endPoint.Id);
                 edges.Add(edge);
@@ -69,14 +69,14 @@ namespace Ants
             return shortestEdge.End;
         }
 
-        private Point GetCurrentNode()
+        private AntPoint GetCurrentNode()
         {
             return VisitedNodes[VisitedNodes.Count - 1];
         }
         
         private void SetStartingPoint()
         {
-            Point startPoint = Graph.Points.First(); // We can set any point as starting point. I choosed first one.
+            AntPoint startPoint = Graph.Points.First(); // We can set any point as starting point. I choosed first one.
             VisitedNodes.Add(startPoint);
             UnvisitedNodes.Remove(startPoint);
         }

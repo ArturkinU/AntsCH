@@ -11,8 +11,8 @@ namespace Ants
         public double Q0 { get; set; }
         public int StartNodeId { get; set; }
         public double Distance { get; set; }
-        public List<Point> VisitedNodes { get; set; }
-        public List<Point> UnvisitedNodes { get; set; }
+        public List<AntPoint> VisitedNodes { get; set; }
+        public List<AntPoint> UnvisitedNodes { get; set; }
         public List<Edge> Path { get; set; }
         #endregion
 
@@ -21,8 +21,8 @@ namespace Ants
             Graph = graph;
             Beta = beta;
             Q0 = q0;
-            VisitedNodes = new List<Point>();
-            UnvisitedNodes = new List<Point>();
+            VisitedNodes = new List<AntPoint>();
+            UnvisitedNodes = new List<AntPoint>();
             Path = new List<Edge>();
         }
 
@@ -35,7 +35,7 @@ namespace Ants
             Path.Clear();
         }
 
-        public Point CurrentNode()
+        public AntPoint CurrentNode()
         {
             return VisitedNodes[VisitedNodes.Count - 1];
         }
@@ -47,7 +47,7 @@ namespace Ants
 
         public Edge Move()
         {
-            Point endPoint;
+            AntPoint endPoint;
             var startPoint = CurrentNode();
 
             if (UnvisitedNodes.Count == 0)
@@ -67,7 +67,7 @@ namespace Ants
             return edge;
         }
 
-        private Point ChooseNextPoint()
+        private AntPoint ChooseNextPoint()
         {
             List<Edge> edgesWithWeight = new List<Edge>();
             Edge bestEdge = new Edge();
@@ -103,17 +103,17 @@ namespace Ants
             return edge.Pheromone * Helper.Pow(heuristic, Beta);
         }
 
-        private Point Exploitation(Edge bestEdge)
+        private AntPoint Exploitation(Edge bestEdge)
         {
             return bestEdge.End;
         }
 
-        private Point Exploration(List<Edge> edgesWithWeight)
+        private AntPoint Exploration(List<Edge> edgesWithWeight)
         {
             double totalSum = edgesWithWeight.Sum(x => x.Weight);
             var edgeProbabilities = edgesWithWeight.Select(w => { w.Weight = (w.Weight / totalSum); return w; }).ToList();
             var cumSum = Helper.EdgeCumulativeSum(edgeProbabilities);
-            Point choosenPoint = Helper.GetRandomEdge(cumSum);
+            AntPoint choosenPoint = Helper.GetRandomEdge(cumSum);
 
             return choosenPoint;
         }

@@ -4,15 +4,15 @@ namespace Ants
 {
     public class Edge
     {
-        public Point Start { get; set; }
-        public Point End { get; set; }
+        public AntPoint Start { get; set; }
+        public AntPoint End { get; set; }
         public double Length { get; set; }
         public double Pheromone { get; set; }
         public double Weight { get; set; }
 
         public Edge() { }
 
-        public Edge(Point start, Point end)
+        public Edge(AntPoint start, AntPoint end)
         {
             Start = start;
             End = end;

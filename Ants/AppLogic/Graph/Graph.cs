@@ -5,13 +5,13 @@ namespace Ants
 {
     public class Graph
     {
-        public List<Point> Points { get; set; }
+        public List<AntPoint> Points { get; set; }
         public Dictionary<int, Edge> Edges { get; set; }
         public int Dimensions { get; set; }
         public double MinimumPheromone { get; set; }
         private bool IsSymetric { get; set; }
 
-        public Graph(List<Point> Points, bool isSymetric)
+        public Graph(List<AntPoint> Points, bool isSymetric)
         {
             Edges = new Dictionary<int, Edge>();
             this.Points = Points;

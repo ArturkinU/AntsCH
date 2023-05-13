@@ -1,110 +1,86 @@
 ﻿<Window x:Class="Ants.MainWindow"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Ants"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:Ants"
         mc:Ignorable="d"
         Title="Antalogia" Height="682" Width="960" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" ResizeMode="NoResize">
-
     <Border Background="#FFFAFAFA" CornerRadius="10" BorderBrush="Black" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="27*"></RowDefinition>
-                <RowDefinition Height="653*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="65*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Border x:Name="WinGrab" CornerRadius="10,10,0,0" Background="#FAFAFA"/>
-
-
+            <Border x:Name="WinGrab" CornerRadius="10,10,0,0" Background="{StaticResource SolidLightColor}"/>
             <Ellipse x:Name="CloseWinBtn" Height="16" Width="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="930,0,0,0" IsEnabled="True" Fill="Red" Stroke="Black" StrokeThickness="0.5"/>
             <Ellipse x:Name="MinimumWinBtn" Height="16" Width="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="910,0,0,0" IsEnabled="True" Fill="Yellow" Stroke="Black" StrokeThickness="0.5"/>
-            <Label Content="Antalogia" HorizontalAlignment="Left" Margin="42,0,0,0" VerticalAlignment="Center" Width="100" FontFamily="Montserrat" FontSize="20" Height="34" Foreground="#FF161032" Background="{x:Null}"/>
-
+            <Label Content="Antalogia" HorizontalAlignment="Left" Margin="42,0,0,0" VerticalAlignment="Center" Width="100" FontFamily="Montserrat" FontSize="20" Height="34" Foreground="{StaticResource SolidDarkColor}" Background="{x:Null}"/>
             <WrapPanel Grid.Column="0" Grid.Row="1">
-                <StackPanel HorizontalAlignment="Center" Height="628">
-
+                <StackPanel HorizontalAlignment="Center" Height="652">
                     <StackPanel Width="160">
-                        <Label Content="Количество муравьёв" Foreground="#FF161032"/>
-                        <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
-                            <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032" FontFamily="Montserrat"/>
+                        <Label Content="Количество муравьёв" Foreground="{StaticResource SolidDarkColor}" FontFamily="Montserrat"/>
+                        <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="{StaticResource SolidDarkColor}">
+                            <TextBox PreviewTextInput="NumberValidationTextBox" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}" FontFamily="Montserrat"/>
                         </Border>
                     </StackPanel>
                     <StackPanel Width="160">
-                        <Label Content="Количество итераций" Foreground="#FF161032"/>
-                        <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
-                            <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032" FontFamily="Montserrat"/>
+                        <Label Content="Количество итераций" Foreground="{StaticResource SolidDarkColor}" FontFamily="Montserrat"/>
+                        <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="{StaticResource SolidDarkColor}">
+                            <TextBox PreviewTextInput="NumberValidationTextBox" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}" FontFamily="Montserrat"/>
                         </Border>
                     </StackPanel>
-
-                    <Label Content="Коэффициент испарения" Foreground="#FF161032" Margin="5,0,5,0"/>
+                    <Label Content="Коэффициент испарения" Foreground="{StaticResource SolidDarkColor}" Margin="5,0,5,0" FontFamily="Montserrat"/>
                     <Slider Width="161" Style="{StaticResource Horizontal_Slider}"/>
-
-
-                    <Label Content="Переменные" Foreground="#FF161032" Margin="5,0,5,0"/>
-
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-
-                        <StackPanel Width="80" Margin="5">
-                            <Label Content="A"/>
-                            <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
-                                <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032"/>
+                    <Label Content="Переменные" Foreground="{StaticResource SolidDarkColor}" Margin="5,0,5,0" FontFamily="Montserrat"/>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5,0,5,0">
+                        <StackPanel Width="80">
+                            <Label Content="A" FontFamily="Montserrat"/>
+                            <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="{StaticResource SolidDarkColor}" Margin="0, 0, 1, 0">
+                                <TextBox  Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}"/>
                             </Border>
                         </StackPanel>
-                        <StackPanel Width="80" Margin="5">
-                            <Label Content="B"/>
-                            <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
-                                <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032"/>
+                        <StackPanel Width="80">
+                            <Label Content="B" FontFamily="Montserrat"/>
+                            <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="{StaticResource SolidDarkColor}" Margin="1, 0, 0, 0">
+                                <TextBox PreviewTextInput="NumberValidationTextBox" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}"/>
                             </Border>
                         </StackPanel>
                     </StackPanel>
-
-                    <!--<Border CornerRadius="5,5,0,0"  Height="21" Width="161" Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="#161032">
-                        <TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="#161032" Foreground="#161032"/>
-                    </Border>-->
-                    <Button Width="160" Height="92" Background="#FFFAFAFA" BorderBrush="{x:Null}" Foreground="#FF161032" Content="Запуск" FontSize="36" FontFamily="Montserrat Black" Margin="0,300,0,0">
+                    <!--<Border CornerRadius="5,5,0,0"  Height="21" Width="161" Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="{StaticResource SolidLightColor}"><TextBox Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidLightColor}" Foreground="{StaticResource SolidLightColor}"/></Border>-->
+                    <Button x:Name="StartBtn" Width="160" Height="92" Template="{StaticResource NoMouseOverButtonTemplate}" Background="#FFFAFAFA" BorderBrush="{x:Null}" Foreground="#FF161032" Content="Запуск" FontSize="36" FontFamily="Montserrat Black" Margin="0,335,0,0">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </Button.Resources>
-
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="10" Direction="270" RenderingBias="Performance" Color="#3F000000" ShadowDepth="2"/>
                         </Button.Effect>
-
                     </Button>
-
                 </StackPanel>
-
-
-                <Border Background="#FF443D63" Width="778" Height="650" Grid.Column="1" Grid.Row="0" CornerRadius="0,0,10,0">
-                    <Canvas Width="778" Background="Transparent"/>
-
+                <Border Background="{StaticResource SolidMediumColor}" Width="788" Height="650" Grid.Column="1" Grid.Row="0" CornerRadius="0,0,10,0">
+                    <Canvas x:Name="DropLayer" Background="Transparent">
+                        
+                        <Label x:Name="InfoLengLabel" Foreground="{StaticResource SolidLightColor}"  Content="Длина маршрута: " Canvas.Left="10" Canvas.Top="596" Height="36" Width="543" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="22"/>
+                    </Canvas>
                 </Border>
             </WrapPanel>
-            <Button Content="File" Margin="183,0,0,0" Height="16" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
+            <Button Template="{StaticResource NoMouseOverButtonTemplate}" Content="File" Margin="172,0,0,0" Height="23" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
             </Button>
-
-            <Button Content="Clear" Margin="267,0,0,0" Height="16" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
+            <Button Template="{StaticResource NoMouseOverButtonTemplate}" Content="Clear" Margin="256,0,0,0" Height="23" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
             </Button>
-
-
-
-
-
-
         </Grid>
     </Border>
-
 </Window>

@@ -6,10 +6,10 @@ namespace Ants
 {
     public static class TspFileReader
     {
-        public static List<Point> ReadTspFile(string tspFilePath)
+        public static List<AntPoint> ReadTspFile(string tspFilePath)
         {
             var file = File.ReadLines(tspFilePath);
-            List<Point> points = new List<Point>();
+            List<AntPoint> points = new List<AntPoint>();
 
             CultureInfo ci = (CultureInfo)CultureInfo.CurrentCulture.Clone();
             ci.NumberFormat.CurrencyDecimalSeparator = ".";
@@ -28,7 +28,7 @@ namespace Ants
                 if (readData)
                 {
                     var spitted = item.Split(' ');
-                    points.Add(new Point(int.Parse(spitted[0]), float.Parse(spitted[1], NumberStyles.Any, ci), float.Parse(spitted[2], NumberStyles.Any, ci)));
+                    points.Add(new AntPoint(int.Parse(spitted[0]), float.Parse(spitted[1], NumberStyles.Any, ci), float.Parse(spitted[2], NumberStyles.Any, ci)));
                 }
             }
 
