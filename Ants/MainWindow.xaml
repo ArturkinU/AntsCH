@@ -6,20 +6,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ants"
         mc:Ignorable="d"
-        Title="MainWindow" Height="682" Width="960" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+        Title="Antalogia" Height="682" Width="960" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" ResizeMode="NoResize">
 
     <Border Background="#FFFAFAFA" CornerRadius="10" BorderBrush="Black" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"></RowDefinition>
-                <RowDefinition Height="65*"></RowDefinition>
+                <RowDefinition Height="27*"></RowDefinition>
+                <RowDefinition Height="653*"></RowDefinition>
             </Grid.RowDefinitions>
             <Border x:Name="WinGrab" CornerRadius="10,10,0,0" Background="#FAFAFA"/>
 
 
             <Ellipse x:Name="CloseWinBtn" Height="16" Width="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="930,0,0,0" IsEnabled="True" Fill="Red" Stroke="Black" StrokeThickness="0.5"/>
             <Ellipse x:Name="MinimumWinBtn" Height="16" Width="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="910,0,0,0" IsEnabled="True" Fill="Yellow" Stroke="Black" StrokeThickness="0.5"/>
-            <Label Content="Antalogia" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="100" FontFamily="Montserrat" FontSize="20" Height="34" Foreground="#FF161032" Background="{x:Null}"/>
+            <Label Content="Antalogia" HorizontalAlignment="Left" Margin="42,0,0,0" VerticalAlignment="Center" Width="100" FontFamily="Montserrat" FontSize="20" Height="34" Foreground="#FF161032" Background="{x:Null}"/>
 
             <WrapPanel Grid.Column="0" Grid.Row="1">
                 <StackPanel HorizontalAlignment="Center" Height="628">
@@ -83,7 +83,7 @@
 
                 </Border>
             </WrapPanel>
-            <Button Content="File" Margin="159,0,0,0" Height="16" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
+            <Button Content="File" Margin="183,0,0,0" Height="16" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -91,7 +91,7 @@
                 </Button.Resources>
             </Button>
 
-            <Button Content="Clear" Margin="243,0,0,0" Height="16" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
+            <Button Content="Clear" Margin="267,0,0,0" Height="16" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
