@@ -79,7 +79,7 @@ namespace Ants
 
             foreach (UIElement child in points)
             {
-                Line line = new Line() { X1 = p.X, Y1 = p.Y, X2 = p.X, Y2 = p.Y, Stroke = this.FindResource("SolidLightColor") as SolidColorBrush, StrokeThickness = 2 };
+                Line line = new Line() { X1 = p.X, Y1 = p.Y, X2 = p.X, Y2 = p.Y, Stroke = this.FindResource("SolidLightColor") as SolidColorBrush, StrokeThickness = 2, StrokeDashArray = new DoubleCollection() { 4 }; };
                 DoubleAnimation Xanimet = new DoubleAnimation();
                 DoubleAnimation Yanimet = new DoubleAnimation();
                 Xanimet.Duration = TimeSpan.FromSeconds(1);
