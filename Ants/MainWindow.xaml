@@ -64,7 +64,9 @@
                     <Canvas x:Name="DropLayer" Background="Transparent">
                         
                         <Label x:Name="InfoLengLabel" Foreground="{StaticResource SolidLightColor}"  Content="Длина маршрута: " Canvas.Left="10" Canvas.Top="596" Height="36" Width="543" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="22"/>
+                        <Canvas x:Name="LineLayer"/>
                     </Canvas>
+                    
                 </Border>
             </WrapPanel>
             <Button Template="{StaticResource NoMouseOverButtonTemplate}" Content="File" Margin="172,0,0,0" Height="23" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">

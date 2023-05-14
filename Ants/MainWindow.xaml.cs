@@ -13,8 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
-
-
+using System.Windows.Ink;
+using System.Windows.Media.Animation;
 
 namespace Ants
 {
@@ -23,9 +23,12 @@ namespace Ants
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Ellipse> points = new List<Ellipse>();
+
         public MainWindow()
         {
             InitializeComponent();
+            
             InitializeBtnsConnected();
         }
 
@@ -65,32 +68,33 @@ namespace Ants
             secEllipse.SetValue(Canvas.TopProperty, p.Y - (21 / 2));
             thwEllipse.SetValue(Canvas.TopProperty, p.Y - ( 7 / 2));
 
-            firEllipse.Tag = 'f';
-            firEllipse.Tag = 'w';
-            firEllipse.Tag = 'w';
+            
 
             DropLayer.Children.Add(firEllipse);
             DropLayer.Children.Add(secEllipse);
             DropLayer.Children.Add(thwEllipse);
 
-            
 
-            
-            foreach (UIElement child in DropLayer.Children)
+
+
+            foreach (UIElement child in points)
             {
-                if (child is Ellipse)
-                {
-                    
-                    {
-                        
-                        {
-                            InfoLengLabel.Content = child.GetValue(TagProperty).ToString();
-                        }
-                    }
-                }
+                Line line = new Line() { X1 = p.X, Y1 = p.Y, X2 = p.X, Y2 = p.Y, Stroke = this.FindResource("SolidLightColor") as SolidColorBrush, StrokeThickness = 2 };
+                DoubleAnimation Xanimet = new DoubleAnimation();
+                DoubleAnimation Yanimet = new DoubleAnimation();
+                Xanimet.Duration = TimeSpan.FromSeconds(1);
+                Yanimet.Duration = TimeSpan.FromSeconds(1);
+                Xanimet.From = p.X;
+                Yanimet.From = p.Y;
+                Xanimet.To = (double)child.GetValue(Canvas.LeftProperty) + (25 / 2);
+                Yanimet.To = (double)child.GetValue(Canvas.TopProperty) + (25 / 2);
+                LineLayer.Children.Add(line);
+                line.BeginAnimation(Line.X2Property, Xanimet);
+                line.BeginAnimation(Line.Y2Property, Yanimet);
+
             }
 
-            
+            points.Add(firEllipse);
 
 
 
