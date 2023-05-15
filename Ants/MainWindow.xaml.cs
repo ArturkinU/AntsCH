@@ -115,18 +115,25 @@ namespace Ants
         private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
             // Start Algoritm
-            CanEditPoints = false;
-            DoubleAnimation OpacityImg = new DoubleAnimation()
-            {
-                From = 0,
-                To = 100,
-                Duration = TimeSpan.FromSeconds(10)
-            };
-            SpinerImg.BeginAnimation(OpacityProperty, OpacityImg);
-            InfoLengLabel.Content = "Идёт выполнение алгоритма";
+            
             GenerateAntPointList();
 
-            Parallel.Invoke(
+            if (!ParameterCheck())
+            {
+                MessageBox.Show("Вы не ввели все параметры");
+            }
+            else
+            {
+                CanEditPoints = false;
+                DoubleAnimation OpacityImg = new DoubleAnimation()
+                {
+                    From = 0,
+                    To = 100,
+                    Duration = TimeSpan.FromSeconds(10)
+                };
+                SpinerImg.BeginAnimation(OpacityProperty, OpacityImg);
+                InfoLengLabel.Content = "Идёт выполнение алгоритма";
+                Parallel.Invoke(
                 new Action(
                     () =>
                     {
@@ -136,11 +143,30 @@ namespace Ants
                             Iterations: int.Parse(IterationBox.Text),
                             AntCount: int.Parse(CountAntsBox.Text),
                             EvaporationRate: FactorEvaporationBox.Value,
-                            Points: antPoints
+                            Points: antPoints,
+                            LineLayer: ref LineLayer,
+                            CanEditPoints: ref CanEditPoints,
+                            Loader: ref SpinerImg,
+                            infoPanel: ref InfoLengLabel
+
                         );
                     }
                 )
             );
+            }
+
+            
+        }
+
+        private bool ParameterCheck()
+        {
+            if ((BFactorBox.Text != "") & (AFactorBox.Text != "") 
+                & (IterationBox.Text != "") & (CountAntsBox.Text != "") 
+                & (antPoints.Count > 0))
+                return true;
+            else
+                return false;
+
         }
 
         private void GenerateAntPointList()
@@ -152,8 +178,8 @@ namespace Ants
                 antPoints.Add(
                     new AntPoint(
                         id_gen,
-                        (float)(double)point.GetValue(Canvas.LeftProperty) + (float)(25 / 2),
-                        (float)(double)point.GetValue(Canvas.TopProperty) + (float)(25 / 2)
+                        (float)(double)point.GetValue(Canvas.LeftProperty) + (25 / 2),
+                        (float)(double)point.GetValue(Canvas.TopProperty) + (25 / 2)
                     )
                 );
             }
@@ -172,8 +198,13 @@ namespace Ants
 
         private void CloseBtnClick(object sender, RoutedEventArgs e)
         {
+            
             Close();
+            
+            
+ 
         }
+
 
         private void TrayBtnClick(object sender, RoutedEventArgs e)
         {

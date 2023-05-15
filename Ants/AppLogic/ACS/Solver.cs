@@ -8,10 +8,12 @@ namespace Ants
     public class Solver
     {
         public Parameters Parameters { get; set; }
+        public List<Edge> AntEdgesWalk { get; set; }
         private Ant GlobalBestAnt { get; set; }
         private List<double> Results { get; set; }
         private Graph Graph { get; set; }
         private Stopwatch Stopwatch { get; set; }
+        
 
         public Solver(Parameters parameters, Graph graph)
         {
@@ -20,6 +22,7 @@ namespace Ants
             Graph = graph;
             Results = new List<double>();
             Stopwatch = new Stopwatch();
+            AntEdgesWalk = new List<Edge>();
         }
 
         /// <summary>
@@ -38,7 +41,7 @@ namespace Ants
                 if (Math.Round(localBestAnt.Distance, 2) < Math.Round(GlobalBestAnt.Distance, 2))
                 {
                     GlobalBestAnt = localBestAnt;
-                    Console.WriteLine("Current Global Best: " + GlobalBestAnt.Distance + " found in " + i + " iteration");
+                    //Console.WriteLine("Current Global Best: " + GlobalBestAnt.Distance + " found in " + i + " iteration");
                 }
                 Results.Add(localBestAnt.Distance);
 
@@ -46,6 +49,9 @@ namespace Ants
             Stopwatch.Stop();
             return Results;
         }
+
+
+ 
 
         /// <summary>
         /// Create ants and place every ant in random point on graph (warning AntCount < Dimensions)
@@ -66,13 +72,23 @@ namespace Ants
         /// <summary>
         /// This method builds solution for every ant in AntColony and return the best ant (with shortest distance tour)
         /// </summary>
+        
         public Ant BuildTours(List<Ant> antColony)
+
         {
+      
+           AntEdgesWalk.Clear();
+           
+            
+            
+
+
             for (int i = 0; i < Graph.Dimensions; i++)
             {
                 foreach (Ant ant in antColony)
                 {
                     Edge edge = ant.Move();
+                    AntEdgesWalk.Add(edge);
                     LocalUpdate(edge);
                 }
             }
@@ -109,6 +125,8 @@ namespace Ants
                 Graph.DepositPheromone(edge, deposit);
             }
         }
+
+
 
         public TimeSpan GetExecutionTime()
         {

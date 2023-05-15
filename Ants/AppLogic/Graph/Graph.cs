@@ -38,6 +38,8 @@ namespace Ants
                 }
             }
         }
+        
+
 
         /// <summary>
         /// Return edge beetwen two points (their ID's) from Dictionary

@@ -16,9 +16,6 @@ namespace Ants
             return Instance.Random.NextDouble() * (maximum - minimum) + minimum;
         }
 
-        /// <summary>
-        /// Generate List of unique numbers
-        /// </summary>
         public static List<int> GenerateRandom(int count, int min, int max)
         {
             return Enumerable.Range(min, max).OrderBy(x => Instance.Random.Next()).Take(count).ToList();
