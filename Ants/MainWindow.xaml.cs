@@ -24,6 +24,7 @@ namespace Ants
     public partial class MainWindow : Window
     {
         List<Ellipse> points = new List<Ellipse>();
+        bool CanEditPoints = true;
 
         public MainWindow()
         {
@@ -79,7 +80,7 @@ namespace Ants
 
             foreach (UIElement child in points)
             {
-                Line line = new Line() { X1 = p.X, Y1 = p.Y, X2 = p.X, Y2 = p.Y, Stroke = this.FindResource("SolidLightColor") as SolidColorBrush, StrokeThickness = 2, StrokeDashArray = new DoubleCollection() { 4 }; };
+                Line line = new Line() { X1 = p.X, Y1 = p.Y, X2 = p.X, Y2 = p.Y, Stroke = this.FindResource("SolidLightColor") as SolidColorBrush, StrokeThickness = 2, StrokeDashArray = new DoubleCollection() { 5 }, StrokeDashCap = PenLineCap.Round, StrokeStartLineCap = PenLineCap.Round, StrokeEndLineCap =PenLineCap.Round };
                 DoubleAnimation Xanimet = new DoubleAnimation();
                 DoubleAnimation Yanimet = new DoubleAnimation();
                 Xanimet.Duration = TimeSpan.FromSeconds(1);
@@ -104,7 +105,11 @@ namespace Ants
 
         private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
-            // 
+           // Start Algoritm
+
+            
+
+
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
