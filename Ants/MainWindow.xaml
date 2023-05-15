@@ -38,13 +38,13 @@
                         <StackPanel Width="80">
                             <Label Content="A" FontFamily="Montserrat"/>
                             <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="{StaticResource SolidDarkColor}" Margin="0, 0, 1, 0">
-                                <TextBox  Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}"/>
+                                <TextBox x:Name="AFactorBox"  Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}"/>
                             </Border>
                         </StackPanel>
                         <StackPanel Width="80">
                             <Label Content="B" FontFamily="Montserrat"/>
                             <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="{StaticResource SolidDarkColor}" Margin="1, 0, 0, 0">
-                                <TextBox PreviewTextInput="NumberValidationTextBox" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}"/>
+                                <TextBox x:Name="BFactorBox" PreviewTextInput="NumberValidationTextBox" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}"/>
                             </Border>
                         </StackPanel>
                     </StackPanel>
@@ -64,7 +64,24 @@
                     <Canvas x:Name="DropLayer" Background="Transparent">
 
                         <Label x:Name="InfoLengLabel" Foreground="{StaticResource SolidLightColor}"  Content="Длина маршрута: " Canvas.Left="10" Canvas.Top="596" Height="36" Width="543" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="22"/>
+                        <Image Opacity="0" x:Name="SpinerImg" Height="50" Canvas.Left="728" Source="/Assets/icons/spiner.png" Stretch="Fill" Canvas.Top="590" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <RotateTransform/>
+                            </Image.RenderTransform>
+                            <Image.Triggers>
+                                <EventTrigger RoutedEvent="Loaded">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+            Storyboard.TargetProperty="(Rectangle.RenderTransform).(RotateTransform.Angle)"
+            To="360" Duration="0:0:1" RepeatBehavior="Forever" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Image.Triggers>
+                        </Image>
                         <Canvas x:Name="LineLayer"/>
+
                     </Canvas>
 
                 </Border>

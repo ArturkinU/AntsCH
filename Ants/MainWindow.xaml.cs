@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Windows.Ink;
 using System.Windows.Media.Animation;
+using System.Threading;
 
 namespace Ants
 {
@@ -24,12 +25,14 @@ namespace Ants
     public partial class MainWindow : Window
     {
         List<Ellipse> points = new List<Ellipse>();
+        List<AntPoint> antPoints = new List<AntPoint>();
+        MainACS ACS = new MainACS();
         bool CanEditPoints = true;
 
         public MainWindow()
         {
             InitializeComponent();
-            
+
             InitializeBtnsConnected();
         }
 
@@ -44,18 +47,16 @@ namespace Ants
 
         private void DropLayer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            if (CanEditPoints == false)
+            {
+                return;
+            }
 
-            /*
-                         <Ellipse Width="25" Height="25" Canvas.Left="500" Canvas.Top="500" Fill="{StaticResource SolidLightColor}"/>
-                         <Ellipse Width="21" Height="21" Canvas.Left="502" Canvas.Top="502" Fill="{StaticResource SolidMediumColor}"/>
-                         <Ellipse Width="7" Height="7" Canvas.Left="509" Canvas.Top="509" Fill="{StaticResource SolidLightColor}"/>
-                         <Line X1="0" Y1="0" X2="500" Y2="500" Stroke="Coral" StrokeThickness="5" StrokeDashCap="Round" StrokeEndLineCap="Round" StrokeDashArray="4 4"/>
-             */
             Point p = Mouse.GetPosition(DropLayer);
             InfoLengLabel.Content = p.ToString();
             Ellipse firEllipse = new Ellipse() { Width = 25, Height = 25 };
             Ellipse secEllipse = new Ellipse() { Width = 21, Height = 21 };
-            Ellipse thwEllipse = new Ellipse() { Width = 7 , Height = 7  };
+            Ellipse thwEllipse = new Ellipse() { Width = 7, Height = 7 };
 
             firEllipse.Fill = this.FindResource("SolidLightColor") as SolidColorBrush;
             secEllipse.Fill = this.FindResource("SolidMediumColor") as SolidColorBrush;
@@ -63,35 +64,33 @@ namespace Ants
 
             firEllipse.SetValue(Canvas.LeftProperty, p.X - (25 / 2));
             secEllipse.SetValue(Canvas.LeftProperty, p.X - (21 / 2));
-            thwEllipse.SetValue(Canvas.LeftProperty, p.X - ( 7 / 2));
+            thwEllipse.SetValue(Canvas.LeftProperty, p.X - (7 / 2));
 
             firEllipse.SetValue(Canvas.TopProperty, p.Y - (25 / 2));
             secEllipse.SetValue(Canvas.TopProperty, p.Y - (21 / 2));
-            thwEllipse.SetValue(Canvas.TopProperty, p.Y - ( 7 / 2));
-
-            
+            thwEllipse.SetValue(Canvas.TopProperty, p.Y - (7 / 2));
 
             DropLayer.Children.Add(firEllipse);
             DropLayer.Children.Add(secEllipse);
             DropLayer.Children.Add(thwEllipse);
 
-
-
-
             foreach (UIElement child in points)
             {
-                Line line = new Line() 
-                {   
-                    X1 = p.X, Y1 = p.Y, 
-                    X2 = p.X, Y2 = p.Y, 
-                    Stroke = this.FindResource("SolidLightColor") as SolidColorBrush, 
-                    StrokeThickness = 2, StrokeDashArray = new DoubleCollection() { 5 }, 
-                    StrokeDashCap = PenLineCap.Round, 
-                    StrokeStartLineCap = PenLineCap.Round, 
-                    StrokeEndLineCap = PenLineCap.Round 
+                Line line = new Line()
+                {
+                    X1 = p.X,
+                    Y1 = p.Y,
+                    X2 = p.X,
+                    Y2 = p.Y,
+                    Stroke = FindResource("SolidLightColor") as SolidColorBrush,
+                    StrokeThickness = 2,
+                    StrokeDashArray = new DoubleCollection() { 5 },
+                    StrokeDashCap = PenLineCap.Round,
+                    StrokeStartLineCap = PenLineCap.Round,
+                    StrokeEndLineCap = PenLineCap.Round
                 };
 
-                DoubleAnimation Xanimet = new DoubleAnimation() 
+                DoubleAnimation Xanimet = new DoubleAnimation()
                 {
                     Duration = TimeSpan.FromSeconds(1),
                     From = p.X,
@@ -103,29 +102,61 @@ namespace Ants
                     From = p.Y,
                     To = (double)child.GetValue(Canvas.TopProperty) + (25 / 2)
                 };
-                
+
                 LineLayer.Children.Add(line);
 
                 line.BeginAnimation(Line.X2Property, Xanimet);
                 line.BeginAnimation(Line.Y2Property, Yanimet);
-
             }
 
             points.Add(firEllipse);
-
-
-
-
-
         }
 
         private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
-           // Start Algoritm
+            // Start Algoritm
+            CanEditPoints = false;
+            DoubleAnimation OpacityImg = new DoubleAnimation()
+            {
+                From = 0,
+                To = 100,
+                Duration = TimeSpan.FromSeconds(10)
+            };
+            SpinerImg.BeginAnimation(OpacityProperty, OpacityImg);
+            InfoLengLabel.Content = "Идёт выполнение алгоритма";
+            GenerateAntPointList();
 
-            
+            Parallel.Invoke(
+                new Action(
+                    () =>
+                    {
+                        ACS.Start(
+                            Beta: int.Parse(BFactorBox.Text),
+                            Alpha: int.Parse(AFactorBox.Text),
+                            Iterations: int.Parse(IterationBox.Text),
+                            AntCount: int.Parse(CountAntsBox.Text),
+                            EvaporationRate: FactorEvaporationBox.Value,
+                            Points: antPoints
+                        );
+                    }
+                )
+            );
+        }
 
-
+        private void GenerateAntPointList()
+        {
+            int id_gen = 0;
+            foreach (Ellipse point in points)
+            {
+                id_gen++;
+                antPoints.Add(
+                    new AntPoint(
+                        id_gen,
+                        (float)(double)point.GetValue(Canvas.LeftProperty) + (float)(25 / 2),
+                        (float)(double)point.GetValue(Canvas.TopProperty) + (float)(25 / 2)
+                    )
+                );
+            }
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -134,16 +165,9 @@ namespace Ants
             e.Handled = regex.IsMatch(e.Text);
         }
 
-
-
         private void WinGrabEvent(object sender, MouseButtonEventArgs e)
         {
-            
-
-
-
             DragMove();
-            
         }
 
         private void CloseBtnClick(object sender, RoutedEventArgs e)
@@ -155,6 +179,5 @@ namespace Ants
         {
             this.WindowState = WindowState.Minimized;
         }
-
     }
 }
