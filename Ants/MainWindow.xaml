@@ -22,13 +22,13 @@
                     <StackPanel Width="160">
                         <Label Content="Количество муравьёв" Foreground="{StaticResource SolidDarkColor}" FontFamily="Montserrat"/>
                         <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="{StaticResource SolidDarkColor}">
-                            <TextBox x:Name = "CountAntsBox" PreviewTextInput="NumberValidationTextBox" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}" FontFamily="Montserrat"/>
+                            <TextBox x:Name="CountAntsBox" PreviewTextInput="NumberValidationTextBox" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}" FontFamily="Montserrat"/>
                         </Border>
                     </StackPanel>
                     <StackPanel Width="160">
                         <Label Content="Количество итераций" Foreground="{StaticResource SolidDarkColor}" FontFamily="Montserrat"/>
                         <Border CornerRadius="5,5,0,0"  Height="21"  Background="#1C5E6973" BorderThickness="0,0,0,1" BorderBrush="{StaticResource SolidDarkColor}">
-                            <TextBox x:Name = "IterationBox" PreviewTextInput="NumberValidationTextBox" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}" FontFamily="Montserrat"/>
+                            <TextBox x:Name="IterationBox" PreviewTextInput="NumberValidationTextBox" Background="{x:Null}" BorderBrush="{x:Null}" CaretBrush="{StaticResource SolidDarkColor}" Foreground="{StaticResource SolidDarkColor}" FontFamily="Montserrat"/>
                         </Border>
                     </StackPanel>
                     <Label Content="Коэффициент испарения" Foreground="{StaticResource SolidDarkColor}" Margin="5,0,5,0" FontFamily="Montserrat"/>
