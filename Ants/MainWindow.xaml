@@ -86,7 +86,7 @@
 
                 </Border>
             </WrapPanel>
-            <Button Template="{StaticResource NoMouseOverButtonTemplate}" Content="Clear" Margin="173,0,0,0" Height="22" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
+            <Button Template="{StaticResource NoMouseOverButtonTemplate}" x:Name="ClearCanvasBtn" Content="Clear" Margin="173,0,0,0" Height="22" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="{StaticResource SolidDarkColor}" BorderBrush="{StaticResource SolidDarkColor}" Background="{StaticResource SolidLightColor}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

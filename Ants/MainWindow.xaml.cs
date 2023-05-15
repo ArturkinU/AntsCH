@@ -43,6 +43,34 @@ namespace Ants
             WinGrab.PreviewMouseLeftButtonDown += WinGrabEvent;
             StartBtn.Click += StartBtn_Click;
             DropLayer.MouseLeftButtonDown += DropLayer_MouseLeftButtonDown;
+            ClearCanvasBtn.Click += ClearCanvasBtn_Click;
+        }
+
+        private void ClearCanvasBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LineLayer.Children.Clear();
+            List<Ellipse> Epoints = new List<Ellipse>();
+            foreach (UIElement uIElement in DropLayer.Children)
+            {
+                if (uIElement is Ellipse)
+                {
+                    Epoints.Add((Ellipse)uIElement);
+                }
+            }
+            
+            foreach (UIElement uIElement in Epoints)
+            {
+                DropLayer.Children.Remove(uIElement);
+            }
+
+            InfoLengLabel.Content = "";
+            SpinerImg.Opacity = 0;
+            CanEditPoints = true;
+            points.Clear();
+            antPoints.Clear();
+            ACS = new MainACS();
+
+
         }
 
         private void DropLayer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
