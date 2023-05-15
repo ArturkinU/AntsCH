@@ -80,16 +80,32 @@ namespace Ants
 
             foreach (UIElement child in points)
             {
-                Line line = new Line() { X1 = p.X, Y1 = p.Y, X2 = p.X, Y2 = p.Y, Stroke = this.FindResource("SolidLightColor") as SolidColorBrush, StrokeThickness = 2, StrokeDashArray = new DoubleCollection() { 5 }, StrokeDashCap = PenLineCap.Round, StrokeStartLineCap = PenLineCap.Round, StrokeEndLineCap =PenLineCap.Round };
-                DoubleAnimation Xanimet = new DoubleAnimation();
-                DoubleAnimation Yanimet = new DoubleAnimation();
-                Xanimet.Duration = TimeSpan.FromSeconds(1);
-                Yanimet.Duration = TimeSpan.FromSeconds(1);
-                Xanimet.From = p.X;
-                Yanimet.From = p.Y;
-                Xanimet.To = (double)child.GetValue(Canvas.LeftProperty) + (25 / 2);
-                Yanimet.To = (double)child.GetValue(Canvas.TopProperty) + (25 / 2);
+                Line line = new Line() 
+                {   
+                    X1 = p.X, Y1 = p.Y, 
+                    X2 = p.X, Y2 = p.Y, 
+                    Stroke = this.FindResource("SolidLightColor") as SolidColorBrush, 
+                    StrokeThickness = 2, StrokeDashArray = new DoubleCollection() { 5 }, 
+                    StrokeDashCap = PenLineCap.Round, 
+                    StrokeStartLineCap = PenLineCap.Round, 
+                    StrokeEndLineCap = PenLineCap.Round 
+                };
+
+                DoubleAnimation Xanimet = new DoubleAnimation() 
+                {
+                    Duration = TimeSpan.FromSeconds(1),
+                    From = p.X,
+                    To = (double)child.GetValue(Canvas.LeftProperty) + (25 / 2)
+                };
+                DoubleAnimation Yanimet = new DoubleAnimation()
+                {
+                    Duration = TimeSpan.FromSeconds(1),
+                    From = p.Y,
+                    To = (double)child.GetValue(Canvas.TopProperty) + (25 / 2)
+                };
+                
                 LineLayer.Children.Add(line);
+
                 line.BeginAnimation(Line.X2Property, Xanimet);
                 line.BeginAnimation(Line.Y2Property, Yanimet);
 

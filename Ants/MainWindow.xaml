@@ -62,14 +62,14 @@
                 </StackPanel>
                 <Border Background="{StaticResource SolidMediumColor}" Width="788" Height="650" Grid.Column="1" Grid.Row="0" CornerRadius="0,0,10,0">
                     <Canvas x:Name="DropLayer" Background="Transparent">
-                        
+
                         <Label x:Name="InfoLengLabel" Foreground="{StaticResource SolidLightColor}"  Content="Длина маршрута: " Canvas.Left="10" Canvas.Top="596" Height="36" Width="543" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Montserrat" FontSize="22"/>
                         <Canvas x:Name="LineLayer"/>
                     </Canvas>
-                    
+
                 </Border>
             </WrapPanel>
-            <Button Template="{StaticResource NoMouseOverButtonTemplate}" Content="Clear" Margin="256,0,0,0" Height="23" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
+            <Button Template="{StaticResource NoMouseOverButtonTemplate}" Content="Clear" Margin="173,0,0,0" Height="22" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
