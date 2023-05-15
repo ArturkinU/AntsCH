@@ -69,13 +69,6 @@
                     
                 </Border>
             </WrapPanel>
-            <Button Template="{StaticResource NoMouseOverButtonTemplate}" Content="File" Margin="172,0,0,0" Height="23" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
             <Button Template="{StaticResource NoMouseOverButtonTemplate}" Content="Clear" Margin="256,0,0,0" Height="23" Width="79" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Montserrat" FontWeight="Regular" FontStretch="Medium" Foreground="#FF161032" BorderBrush="#FF161032" Background="{x:Null}">
                 <Button.Resources>
                     <Style TargetType="Border">
